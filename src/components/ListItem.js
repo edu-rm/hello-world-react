@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 function ListItem({ name, onDelete }){
   return (
@@ -9,5 +9,14 @@ function ListItem({ name, onDelete }){
     </li>
   )
 }
+
+ListItem.defaultProps = {
+  name: 'oculto',
+}
+
+ListItem.propTypes= {
+  name: PropTypes.string,
+  onDelete: PropTypes.func.isRequired 
+};
 
 export default ListItem;

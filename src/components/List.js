@@ -44,6 +44,7 @@ class List extends Component{
             />
           )}
 
+          <ListItem />
         </ul>
 
         <input 
