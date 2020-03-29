@@ -16,15 +16,28 @@ class List extends Component{
     this.setState({ newName: e.target.value });
   }
 
+  handleSubmit = e =>{
+    e.preventDefault();
+
+    this.setState({ 
+      names: [...this.state.names, this.state.newName],
+      newName: ''
+    });
+  }
+
   render(){
     return (
-      <>
-        <h1>{this.state.newName}</h1>
+      <form onSubmit={this.handleSubmit}>
         <ul>
           {this.state.names.map(name => <li key={name}>{name}</li>)}
         </ul>
-        <input type="text" onChange={this.handleInputChange}/>
-      </>
+        <input 
+          type="text"
+          onChange={this.handleInputChange} 
+          value={this.state.newName}
+        />
+        <button type="submit">Enviar</button>
+      </form>
     );
   }
 
