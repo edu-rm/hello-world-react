@@ -25,11 +25,21 @@ class List extends Component{
     });
   }
 
+  handleDelete = (name) => {
+    this.setState({ names: this.state.names.filter(t => t !== name) });
+  }
+
   render(){
     return (
       <form onSubmit={this.handleSubmit}>
         <ul>
-          {this.state.names.map(name => <li key={name}>{name}</li>)}
+          {this.state.names.map(name => (
+            <li key={name}>
+              {name}
+              <button onClick={() => this.handleDelete(name)} type="button">Remover</button>
+            </li>
+
+          ))}
         </ul>
         <input 
           type="text"
