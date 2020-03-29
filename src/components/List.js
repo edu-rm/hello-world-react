@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import ListItem from './ListItem';
 
 class List extends Component{
 
@@ -32,15 +33,19 @@ class List extends Component{
   render(){
     return (
       <form onSubmit={this.handleSubmit}>
-        <ul>
-          {this.state.names.map(name => (
-            <li key={name}>
-              {name}
-              <button onClick={() => this.handleDelete(name)} type="button">Remover</button>
-            </li>
 
-          ))}
+        <ul>
+          
+          {this.state.names.map(name => 
+            <ListItem 
+              key={name} 
+              name={name} 
+              onDelete={() => this.handleDelete(name)} 
+            />
+          )}
+
         </ul>
+
         <input 
           type="text"
           onChange={this.handleInputChange} 
