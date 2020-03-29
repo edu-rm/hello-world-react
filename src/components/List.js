@@ -4,23 +4,30 @@ import React, { Component } from 'react';
 class List extends Component{
 
   state = {
+    newName:'',
     names: [
       'Eduardo',
       'Pedro',
       'Lucas'
     ]
+  };
+
+  handleInputChange = e =>{
+    this.setState({ newName: e.target.value });
   }
 
   render(){
-    console.log(this.state);
     return (
-      <ul>
-        <li>Eduardo</li>
-        <li>Pedro</li>
-        <li>Lucas</li>
-      </ul>
+      <>
+        <h1>{this.state.newName}</h1>
+        <ul>
+          {this.state.names.map(name => <li key={name}>{name}</li>)}
+        </ul>
+        <input type="text" onChange={this.handleInputChange}/>
+      </>
     );
   }
+
 }
 
 export default List;
