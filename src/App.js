@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 
-import star from './assets/teste.png';
+import List from './components/List';
 
 function App(){
-  return <img src={star}/>
+  return <List />
 }
 
 export default App;

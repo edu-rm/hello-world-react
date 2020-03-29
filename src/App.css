@@ -1,5 +1,7 @@
 body{
-  background-color: aqua;
-  color: black;
+  background-color: brown;
+  color: white;
   font-family: sans-serif;
+  font-weight:bold;
+  font-size: 20px;
 }
