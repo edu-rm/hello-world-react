@@ -16,7 +16,7 @@ ListItem.defaultProps = {
 
 ListItem.propTypes= {
   name: PropTypes.string,
-  onDelete: PropTypes.func.isRequired 
+  onDelete: PropTypes.func.isRequired
 };
 
 export default ListItem;

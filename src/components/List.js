@@ -6,12 +6,24 @@ class List extends Component{
 
   state = {
     newName:'',
-    names: [
-      'Eduardo',
-      'Pedro',
-      'Lucas'
-    ]
+    names: []
   };
+
+  componentDidMount(){
+    const names = localStorage.getItem('names');
+    if(names){
+      this.setState({ names: JSON.parse(names)});
+    }
+  }
+
+  componentDidUpdate(_, prevState){
+    if(prevState.names !== this.state.names){
+      localStorage.setItem('names', JSON.stringify(this.state.names)); 
+    }
+  }
+
+  componentWillUnmount(){
+  }
 
   handleInputChange = e =>{
     this.setState({ newName: e.target.value });
@@ -44,7 +56,6 @@ class List extends Component{
             />
           )}
 
-          <ListItem />
         </ul>
 
         <input 
